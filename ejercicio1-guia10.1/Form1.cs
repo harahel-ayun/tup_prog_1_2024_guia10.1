@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -32,53 +33,56 @@ namespace ejercicio1_guia10._1
         {
 
         }
-        double promediobici() 
-        { 
-            double promedio =0;
+        double promediobici()
+        {
+            double promedio = 0;
             if (bicicleta > 0)
             {
-                promedio= distanciabici/bicicleta;
+               return distanciabici / bicicleta;
             }
-            return distanciabici/bicicleta;
+            return 0;
         }
         double promediomoto()
         {
-            double promedio = 0;
             if (moto > 0)
             {
-                promedio = distanciamoto / moto;
+                return distanciamoto / moto;
             }
-            return distanciamoto/moto;
+            return 0;
         }
         int calcularpersonas()
         {
-            return bicicleta+moto+auto+transportepublico;
+            return bicicleta + moto + auto + transportepublico;
         }
         private void btnregistrar_Click(object sender, EventArgs e)
-        {double distancia =Convert.ToDouble(textdistancia.Text);
-            if(btnradiobici.Checked)
+        {
+            double distancia = Convert.ToDouble(textdistancia.Text);
+            if (btnradiobici.Checked)
             {
                 bicicleta++;
                 distanciabici += distancia;
-            }else if(btnradiomoto.Checked)
+            }
+            else if (btnradiomoto.Checked)
             {
                 moto++;
                 distanciamoto += distancia;
-            }else if (btnradioauto.Checked)
+            }
+            else if (btnradioauto.Checked)
             {
                 auto++;
-            }else if (btnradiotp.Checked)
+            }
+            else if (btnradiotp.Checked)
             {
                 transportepublico++;
             }
             btnradiobici.Checked = false;
             btnradiomoto.Checked = false;
             btnradioauto.Checked = false;
-            btnradiotp.Checked= false;
+            btnradiotp.Checked = false;
             textdistancia.Clear();
         }
 
- 
+
         private void btnresultados_Click(object sender, EventArgs e)
         {
             listBoxresultado.Items.Clear();
@@ -91,3 +95,6 @@ namespace ejercicio1_guia10._1
         }
     }
 }
+
+
+
